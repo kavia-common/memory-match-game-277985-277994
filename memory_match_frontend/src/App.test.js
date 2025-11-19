@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders Memory Match header and controls', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/Memory Match/i)).toBeInTheDocument();
+  expect(screen.getByText(/Moves/i)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /Restart/i })).toBeInTheDocument();
 });

@@ -1,0 +1,76 @@
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: transparent;
+  border: none;
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 12px;
+}
+
+.card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.6);
+}
+
+.card:disabled {
+  cursor: not-allowed;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+.flipped .inner {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+
+.front {
+  background: #ffffff;
+  color: #64748b; /* secondary */
+  border: 1px solid #e5e7eb;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.08));
+}
+
+.back {
+  background: #3b82f6; /* primary */
+  color: #ffffff;
+  transform: rotateY(180deg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.matched .back {
+  background: #06b6d4; /* success */
+}
+
+.symbol {
+  font-size: clamp(1.2rem, 4.5vw, 2.2rem);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.15));
+}

@@ -1,0 +1,18 @@
+.board {
+  display: grid;
+  gap: 12px;
+  width: min(92vw, 860px);
+  margin: 0 auto;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cell {
+  width: 100%;
+}
+
+@media (min-width: 700px) {
+  .board {
+    gap: 14px;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
